@@ -1,5 +1,7 @@
 # OTP Based Authentication
 
+<img src="https://www.guarana-technologies.com/wp-content/uploads/2017/08/node-js-web-app-development.png" width="150" height="150"/><br>
+
 This RESTful api provides OTP based authentication. It is written in Node.js. MongoDB was used as the database. Node.js and MongoDB must be installed to the operation system before "git clone".
 
 # Settings
