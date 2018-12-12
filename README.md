@@ -1,10 +1,10 @@
 # OTP Based Authentication
 
-This RESTful api provides OTP based authentication. It is written in Node.js. MongoDB was used as the database. Node.js and MongoDB must be installed to the operation system.
+This RESTful api provides OTP based authentication. It is written in Node.js. MongoDB was used as the database. Node.js and MongoDB must be installed to the operation system before "git clone".
 
 # Settings
 1-) Install all dependencies with "npm install" command. <p>
-2-a) Create a ".env" file in your project folder and open it for edit. It should be two different api key in ".env" file to sign JWT: First one APISECRETKEY, second one TEMPORARILYTOKENKEY. Because there are two types of jwt in this api for security. The jwt which is signed with TEMPORARILYTOKENKEY is expires in 15 minutes. This jwt must be used only for confirm OTP. And the jwt which is signed with APISECRETKEY is expires in 30 days. This jwt must be used for validate all endpoint under /api/... <br>
+2-a) Open ".env" file in the project folder for edit. It should be two different api key in ".env" file to sign JWT: First one APISECRETKEY, second one TEMPORARILYTOKENKEY. Because there are two types of jwt in this api for security. The jwt which is signed with TEMPORARILYTOKENKEY is expires in 15 minutes. This jwt must be used only for confirm OTP. And the jwt which is signed with APISECRETKEY is expires in 30 days. This jwt must be used for validate all endpoint under /api/... <br>
 2-b) Mail service settings should  be in the ".env" file too. There are three variables for that: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-) NODEMAILER_HOST variable is for mail service smtp info. For example: "NODEMAILER_HOST = smtp-mail.outlook.com". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-) NODEMAILER_USER variable is for sender email address. For example "NODEMAILER_USER = johndoe@hotmail.com". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3-) NODEMAILER_PASS variable is for sender email password. <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Briefly ".env" file should look like this: <p> 
 <i>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NODEMAILER_HOST = smtp-mail.outlook.com
