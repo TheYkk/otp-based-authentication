@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer');
 //Models
 const UserObject = require('../models/User');
 
+// Get OTP
 router.post('/', (req, res, next) => {
   const {
     email

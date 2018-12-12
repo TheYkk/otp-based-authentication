@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 //Models
 const UserObject = require('../models/User');
 
-// Verify otp 
+// Verify OTP and login.
 router.post('/', (req, res, next) => {
   const {
     otp
