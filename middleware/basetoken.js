@@ -6,6 +6,7 @@ const BlacklistTokenObject = require('../models/Blacklist');
 module.exports = (req, res, next) => {
     const token = req.headers['x-access-token'] || req.body.token || req.query.token;
     if (token) {
+        // Check blacklist for token.
         const promise = BlacklistTokenObject.findOne({
             token
         });
@@ -16,6 +17,7 @@ module.exports = (req, res, next) => {
                     message: "Expired token!"
                 });
             }else{
+                // Verify token.
                 jwt.verify(token, process.env.APISECRETKEY, (err, decoded) => {
                     if (err) {
                         res.status(401).json({

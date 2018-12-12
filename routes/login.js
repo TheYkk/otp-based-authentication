@@ -30,11 +30,12 @@ router.post('/', (req, res, next) => {
             message: "Authentication failed. Wrong otp!"
           });
         } else {
+          // Prepare a token.
           const payload = {
             email: decoded_email
           };
           const token = jwt.sign(payload, process.env.APISECRETKEY, {
-            expiresIn: 86400 * 30
+            expiresIn: 86400 * 30 // This token expires 30 days later. 
           });
           res.status(200).json({
             success: true,

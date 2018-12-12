@@ -14,8 +14,12 @@ router.post('/', (req, res, next) => {
   const {
     email
   } = req.body;
+
+  // Generate an OTP
   const num = Math.floor(Math.random() * (999999 - 100000)) + 100000;
   const otp = num.toString();
+
+  // Get hash and save to the database.
   bcrypt.hash(otp, 10).then((hash) => {
     const promise = UserObject.updateOne({
       email
@@ -25,7 +29,8 @@ router.post('/', (req, res, next) => {
     }, {
       upsert: true
     });
-    promise.then((user) => {
+    promise.then((data) => {
+      // Send an e-mail. 
       let transporter = nodemailer.createTransport({
         host: process.env.NODEMAILER_HOST,
         auth: {
@@ -53,6 +58,7 @@ router.post('/', (req, res, next) => {
 
           console.log("otp:" + otp);
 
+          // Prepare a token. 
           const payload = {
             email
           };
@@ -60,6 +66,7 @@ router.post('/', (req, res, next) => {
             expiresIn: 900 // This token expires 15 minutes later.  
           });
 
+          // Send a response.
           res.status(200).json({
             success: true,
             message: "If your address is correct, you will receive an email!",

@@ -4,9 +4,9 @@ const router = express.Router();
 //Models
 const BlacklistTokenObject = require('../models/Blacklist');
 
-
 // Logout
 router.post('/', (req, res, next) => {
+    // Add token to the blacklist. 
   const newBlacklistToken = new BlacklistTokenObject({
       email: req.decoded_email,
       token: req.token
