@@ -5,8 +5,8 @@ const server=require('../app');
 
 chai.use(chaiHttp);
 
-// Don't forget to uncomment the test line in /getotp route.
-// Also don't forget the comment it again after the test is finished.. 
+// Don't forget to uncomment the test line in "/getotp" route.
+// Important!! Don't forget the comment it again after the test is finished.
 
 // Get OTP, login with it, then logout.
 let token, otp;

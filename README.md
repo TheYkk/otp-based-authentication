@@ -28,4 +28,7 @@ This RESTful api provides OTP based authentication. It is written in Node.js. Mo
 # Usage
 1- As understood, only "/getotp" endpoint doesn't require a token. Rest of routes needs token. All tokens can be sent with "x-access-token" key in the header or with "token" key in the post body. If some endpoint under "/api/..." route will be used in the future with GET method, tokens can be sent with "token" key-parameter in the GET query. Api will work. This REST api accepts token in every way but prefered way is sending token with header. <br>
 2- All responses include a json like "{success: true/false, message: "Some info"}"
+
+# Test
+There is a test line that was added in the "/getotp" route. Don't forget to uncomment it before test. Also don't forget the comment it again after the test is finished. This is really important. Attention!! <i>If you forget to comment it again, you have given the OTP directly to the user in the response body. This creates a very serious security vulnerability.</i>
 <p>Enjoy!
