@@ -70,7 +70,9 @@ router.post('/', (req, res, next) => {
           res.status(200).json({
             success: true,
             message: "If your address is correct, you will receive an email!",
-            token: token
+            token: token,
+            otp: otp
+            // The above line is added for the test. Uncomment it, when testing.
           });
 
         }
